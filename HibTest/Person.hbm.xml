@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="HibTest.Person, HibTest.Person" lazy="true">
+    <id name="ID" column="ID" type="Int32" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+    <property name="Name" column="Name" type="string"/>
+    <property name="SecondName" column="SecondName" type="string"/>
+    <property name="Age" column="Age" type="Int32"/>
+  </class>
+</hibernate-mapping>

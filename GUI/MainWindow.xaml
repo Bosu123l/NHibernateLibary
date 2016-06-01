@@ -1,0 +1,44 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Name="window"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="0,0,10,0" Height="103" VerticalAlignment="Top" HorizontalAlignment="Right" Width="252">
+            <DockPanel>
+                <Label Content="FirstName"  Width="100"/>
+                <TextBox Text="{Binding PersonView.FirstName,ElementName=window}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="SecondName" Width="100"/>
+                <TextBox Text="{Binding PersonView.SecondName,ElementName=window}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Age" Width="100"/>
+                <TextBox Text="{Binding PersonView.Age,ElementName=window}"/>
+            </DockPanel>
+        </StackPanel>
+
+        <DataGrid AutoGenerateColumns="False"
+                  ItemsSource="{Binding Persons,
+                                        ElementName=window}"
+                  SelectedItem="{Binding SelectedPerson,
+                                         ElementName=window}" Margin="0,0,0,28" HorizontalAlignment="Left" Width="250" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" />
+                <DataGridTextColumn Binding="{Binding FirstName}" ClipboardContentBinding="{x:Null}" />
+                <DataGridTextColumn Binding="{Binding SecondName}" ClipboardContentBinding="{x:Null}" />
+                <DataGridTextColumn Binding="{Binding Age}" ClipboardContentBinding="{x:Null}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Height="23" Content="Update" VerticalAlignment="Top" Margin="0,108,100,0" Click="Button_Click" HorizontalAlignment="Right" Width="85"/>
+        <Button Height="23" Content="Add" VerticalAlignment="Top" Margin="0,108,10,0" Click="Button_Click_1" HorizontalAlignment="Right" Width="85" />
+    </Grid>
+</Window>
